@@ -34,7 +34,8 @@ namespace TalabatApplication
             try { 
                 var dbcontext = Services.GetRequiredService<StoreContext>();
                 //Asking CLR to create obj from dbcontext Explicitly
-                await dbcontext.Database.MigrateAsync();
+                await dbcontext.Database.MigrateAsync();     //Update DB
+                await StoreContextSeed.SeedAsync(dbcontext); //Seed Data
             }
             catch (Exception ex)
             {
