@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Talabat.Core.repositories;
 using Talabat.Repository;
 using Talabat.Repository.Data;
+using TalabatApplication.Helpers;
 
 namespace TalabatApplication
 {
@@ -26,7 +27,7 @@ namespace TalabatApplication
             });
 
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+            builder.Services.AddAutoMapper(typeof(MappingProfiles));
             var app = builder.Build();
 
             //  Update-Database          
